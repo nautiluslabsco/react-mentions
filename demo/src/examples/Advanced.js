@@ -20,7 +20,7 @@ const style = merge({}, defaultStyle, {
   },
 })
 
-function Advanced({ value, data, onChange, onBlur, onAdd }) {
+function Advanced({ value, data, onChange, onAdd }) {
   let inputEl = React.createRef()
   return (
     <div className="advanced">
@@ -29,7 +29,6 @@ function Advanced({ value, data, onChange, onBlur, onAdd }) {
       <MentionsInput
         value={value}
         onChange={onChange}
-        onBlur={onBlur}
         markup="{{__id__}}"
         style={style}
         displayTransform={id => `<-- ${id} -->`}
@@ -49,13 +48,4 @@ function Advanced({ value, data, onChange, onBlur, onAdd }) {
   )
 }
 
-export default compose(
-  provideExampleValue('Hi {{johndoe}}!'),
-  withHandlers({
-    onBlur: () => (ev, clickedOnSuggestion) => {
-      if (!clickedOnSuggestion) {
-        console.log('finished editing')
-      }
-    },
-  })
-)(Advanced)
+export default compose(provideExampleValue('Hi {{johndoe}}!'))(Advanced)

@@ -85,12 +85,19 @@ const propTypes = {
   displayTransform: PropTypes.func,
   onKeyDown: PropTypes.func,
   onSelect: PropTypes.func,
-  onBlur: PropTypes.func,
   onChange: PropTypes.func,
-  suggestionsPortalHost: typeof Element === 'undefined' ? PropTypes.any : PropTypes.PropTypes.instanceOf(Element),
+  suggestionsPortalHost:
+    typeof Element === 'undefined'
+      ? PropTypes.any
+      : PropTypes.PropTypes.instanceOf(Element),
   inputRef: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: typeof Element === 'undefined' ? PropTypes.any : PropTypes.instanceOf(Element) }),
+    PropTypes.shape({
+      current:
+        typeof Element === 'undefined'
+          ? PropTypes.any
+          : PropTypes.instanceOf(Element),
+    }),
   ]),
 
   children: PropTypes.oneOfType([
@@ -110,7 +117,6 @@ class MentionsInput extends React.Component {
     },
     onKeyDown: () => null,
     onSelect: () => null,
-    onBlur: () => null,
   }
 
   constructor(props) {
@@ -161,7 +167,6 @@ class MentionsInput extends React.Component {
           onChange: this.handleChange,
           onSelect: this.handleSelect,
           onKeyDown: this.handleKeyDown,
-          onBlur: this.handleBlur,
           onCompositionStart: this.handleCompositionStart,
           onCompositionEnd: this.handleCompositionEnd,
           onScroll: this.updateHighlighterScroll,
@@ -451,26 +456,6 @@ class MentionsInput extends React.Component {
     this.setState({
       focusIndex: 0,
     })
-  }
-
-  handleBlur = ev => {
-    const clickedSuggestion = this._suggestionsMouseDown
-    this._suggestionsMouseDown = false
-
-    // only reset selection if the mousedown happened on an element
-    // other than the suggestions overlay
-    if (!clickedSuggestion) {
-      this.setState({
-        selectionStart: null,
-        selectionEnd: null,
-      })
-    }
-
-    window.setTimeout(() => {
-      this.updateHighlighterScroll()
-    }, 1)
-
-    this.props.onBlur(ev, clickedSuggestion)
   }
 
   handleSuggestionsMouseDown = ev => {

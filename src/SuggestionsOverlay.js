@@ -99,7 +99,7 @@ class SuggestionsOverlay extends Component {
         descriptor={mentionDescriptor}
         suggestion={suggestion}
         focused={isFocused}
-        onClick={() => this.select(suggestion, descriptor)}
+        onMouseUp={() => this.select(suggestion, descriptor)}
         onMouseEnter={() => this.handleMouseEnter(index)}
       />
     )

@@ -9,17 +9,17 @@ A React component that let's you mention people in a textarea like you are used 
 
 ##### Used in production at:
 
-* [Signavio](https://signavio.com)
-* [State](https://state.com)
-* [Snips](https://snips.ai)
-* [Swat.io](https://swat.io)
-* [GotDone](https://www.gotdone.me)
-* [Volinspire](https://volinspire.com)
-* [Marvin](https://amazingmarvin.com)
-* [Timely](https://timelyapp.com)
-* [GuideFitter](https://www.guidefitter.com/)
-* [Evite](https://www.evite.com/)
-* [Publer](https://publer.me/)
+- [Signavio](https://signavio.com)
+- [State](https://state.com)
+- [Snips](https://snips.ai)
+- [Swat.io](https://swat.io)
+- [GotDone](https://www.gotdone.me)
+- [Volinspire](https://volinspire.com)
+- [Marvin](https://amazingmarvin.com)
+- [Timely](https://timelyapp.com)
+- [GuideFitter](https://www.guidefitter.com/)
+- [Evite](https://www.evite.com/)
+- [Publer](https://publer.me/)
 
 Please [let us know](mailto:wolf.pack@signavio.com?subject=we're%20using%20react-mentions%20at%20...) if you are using react-mentions, we'd love to add you to this list.
 
@@ -62,17 +62,16 @@ You can find more examples here: [demo/src/examples](https://github.com/signavio
 
 The `MentionsInput` supports the following props for configuring the widget:
 
-| Prop name             | Type                                                    | Default value              | Description                                                                            |
-| --------------------- | ------------------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------- |
-| value                 | string                                                  | `''`                       | The value containing markup for mentions                                               |
-| onChange              | function (event, newValue, newPlainTextValue, mentions) | empty function             | A callback that is invoked when the user changes the value in the mentions input       |
-| markup                | string                                                  | `'@[__display__](__id__)'` | A template string for the markup to use for mentions                                   |
-| singleLine            | boolean                                                 | `false`                    | Renders a single line text input instead of a textarea, if set to `true`               |
-| displayTransform      | function (id, display, type)                            | returns `display`          | Accepts a function for customizing the string that is displayed for a mention          |
-| onBlur                | function (event, clickedSuggestion)                     | empty function             | Passes `true` as second argument if the blur was caused by a mousedown on a suggestion |
-| allowSpaceInQuery     | boolean                                                 | false                      | Keep suggestions open even if the user separates keywords with spaces.                 |
-| suggestionsPortalHost | DOM Element                                             | undefined                  | Render suggestions into the DOM in the supplied host element.                          |
-| inputRef              | React ref                                               | undefined                  | Accepts a React ref to forward to the underlying input element                         |
+| Prop name             | Type                                                    | Default value              | Description                                                                      |
+| --------------------- | ------------------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------- |
+| value                 | string                                                  | `''`                       | The value containing markup for mentions                                         |
+| onChange              | function (event, newValue, newPlainTextValue, mentions) | empty function             | A callback that is invoked when the user changes the value in the mentions input |
+| markup                | string                                                  | `'@[__display__](__id__)'` | A template string for the markup to use for mentions                             |
+| singleLine            | boolean                                                 | `false`                    | Renders a single line text input instead of a textarea, if set to `true`         |
+| displayTransform      | function (id, display, type)                            | returns `display`          | Accepts a function for customizing the string that is displayed for a mention    |
+| allowSpaceInQuery     | boolean                                                 | false                      | Keep suggestions open even if the user separates keywords with spaces.           |
+| suggestionsPortalHost | DOM Element                                             | undefined                  | Render suggestions into the DOM in the supplied host element.                    |
+| inputRef              | React ref                                               | undefined                  | Accepts a React ref to forward to the underlying input element                   |
 
 Each data source is configured using a `Mention` component, which has the following props:
 
